@@ -1,32 +1,29 @@
----
-// interface Props {
-//   title: string;
-//   body: string;
-//   href: string;
-// }
-//
-// const { href, title, body } = Astro.props;
----
-
-<div class="bg-green beam"></div>
+<div
+  class="bg-green beam"
+  data-component="beam"
+  transition:persist
+  data-scale="2"
+>
+</div>
 
 <style>
   .beam {
     position: fixed;
     left: 50%;
-    top: 50px;
+    top: 70px;
 
     width: 300vh;
     height: 200px;
 
     z-index: -1;
-    opacity: 1;
+    opacity: 0.1;
 
     transition:
       transform 0.5s,
       background-color 0.5s;
 
-    transform: translateX(-50%) scale(2) rotate(160deg);
+    --beam-scale: 2;
+    transform: translateX(-50%) scale(var(--beam-scale)) rotate(160deg);
 
     @media screen and (min-width: 768px) {
       height: 300px;
@@ -36,3 +33,30 @@
     }
   }
 </style>
+
+<script>
+  const beam = document.querySelector(
+    "[data-component=beam]",
+  ) as HTMLDivElement;
+
+  const getCurrentScale = () => +beam.dataset.scale!;
+
+  const getNextScale = (): number => {
+    const getRandomInt = (min: number, max: number) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    const currentScale = getCurrentScale();
+    const nextScale = getRandomInt(2, 5);
+    return currentScale === nextScale ? getNextScale() : nextScale;
+  };
+
+  document.addEventListener("astro:page-load", () => {
+    const nextScale = getNextScale().toString();
+    beam.setAttribute("data-scale", nextScale);
+
+    beam.style.setProperty("--beam-scale", nextScale);
+  });
+</script>

@@ -19,7 +19,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang="de" transition:animate="none">
   <head>
     <ViewTransitions />
     <meta charset="UTF-8" />
@@ -30,7 +30,7 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="bg-green-900 text-gray-300" transition:animate="none">
+  <body class="bg-green-900 text-gray-300">
     <header class="px-6 pt-8 pb-16">
       <a href="/">
         <Image src={Logo} alt="Logo" class="w-32" />
@@ -39,11 +39,11 @@ const { title, description } = Astro.props;
 
     <Beam />
 
-    <main class="container mx-auto px-6" transition:animate="slide">
+    <main class="container mx-auto px-6" transition:animate="fade">
       <slot />
     </main>
 
-    <footer class="container mx-auto px-6 pt-16" transition:animate="none">
+    <footer class="container mx-auto px-6 pt-16">
       <ul class="flex justify-end space-x-3">
         <li>
           <a href="/feed.xml" target="_blank" title="RSS Feed">
