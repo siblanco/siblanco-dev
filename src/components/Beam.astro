@@ -1,10 +1,4 @@
-<div
-  class="bg-green beam"
-  data-component="beam"
-  transition:persist
-  data-scale="2"
->
-</div>
+<div class="bg-green beam" data-component="beam" transition:persist></div>
 
 <style>
   .beam {
@@ -16,11 +10,12 @@
     height: 200px;
 
     z-index: -1;
-    opacity: 0.1;
+    opacity: 0.01;
 
     transition:
       transform 0.5s,
-      background-color 0.5s;
+      background-color 0.5s,
+      opacity 1s;
 
     --beam-scale: 2;
     transform: translateX(-50%) scale(var(--beam-scale)) rotate(160deg);
@@ -39,7 +34,8 @@
     "[data-component=beam]",
   ) as HTMLDivElement;
 
-  const getCurrentScale = () => +beam.dataset.scale!;
+  beam.style.opacity = "0.1";
+  const getCurrentScale = () => beam.dataset.scale;
 
   const getNextScale = (): number => {
     const getRandomInt = (min: number, max: number) => {
@@ -50,13 +46,18 @@
 
     const currentScale = getCurrentScale();
     const nextScale = getRandomInt(2, 4);
-    return currentScale === nextScale ? getNextScale() : nextScale;
+
+    if (currentScale === undefined) {
+      // start off with 2 to match the initial scale
+      return 2;
+    }
+
+    return nextScale === +currentScale ? getNextScale() : nextScale;
   };
 
   document.addEventListener("astro:page-load", () => {
     const nextScale = getNextScale().toString();
     beam.setAttribute("data-scale", nextScale);
-
     beam.style.setProperty("--beam-scale", nextScale);
   });
 </script>
