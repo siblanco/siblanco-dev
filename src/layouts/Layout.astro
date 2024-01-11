@@ -16,9 +16,10 @@ import Beam from "../components/Beam.astro";
 interface Props {
   title: string;
   description: string;
+  slug?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, slug } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,6 +31,13 @@ const { title, description } = Astro.props;
     <meta name="author" content="Hassan El Siblani" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={`https://siblanco.dev${slug}`} />
+    <meta property="og:image" content="https://siblanco.dev/icon.png" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
