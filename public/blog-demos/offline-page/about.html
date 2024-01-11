@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Custom Offline Page Demo</title>
+        <meta
+            name="description"
+            content="Hier zeige ich dir, wie du eine individuelle offline Seite anzeigen kannst."
+        />
+
+        <style>
+            body {
+                display: flex;
+                height: 100vh;
+                background-color: indianred;
+                justify-content: center;
+                align-items: center;
+                flex-flow: column wrap;
+            }
+
+            h1 {
+                color: whitesmoke;
+                font-size: 2rem;
+            }
+
+            a {
+                color: whitesmoke;
+                font-size: 1.3rem;
+            }
+
+            @media screen and (min-width: 768px) {
+                h1 {
+                    font-size: 3rem;
+                }
+                a {
+                    font-size: 1.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Ich bin eine About Seite!</h1>
+        <a href="index.html">Home</a>
+    </body>
+</html>

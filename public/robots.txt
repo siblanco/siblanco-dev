@@ -1,0 +1,3 @@
+Sitemap: https://siblanco.dev/sitemap.xml
+User-agent: *
+Disallow:
