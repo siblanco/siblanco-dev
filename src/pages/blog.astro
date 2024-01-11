@@ -1,0 +1,119 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+const dummyList = [
+  {
+    title: "Hello World",
+    slug: "hello-world",
+    date: "14. Oktober 2023",
+    tags: ["devlife", "linux", "git", "ssh"],
+  },
+  {
+    title: "Hello World",
+    slug: "hello-world",
+    date: "14. Oktober 2023",
+    tags: ["devlife", "linux", "git", "SSH"],
+  },
+  {
+    title: "Hello World",
+    slug: "hello-world",
+    date: "14. Oktober 2023",
+    tags: ["devlife", "linux", "git", "ssh"],
+  },
+  {
+    title: "Hello World",
+    slug: "hello-world",
+    date: "14. Oktober 2023",
+    tags: ["devlife", "linux", "git", "ssh"],
+  },
+  {
+    title: "Hello World",
+    slug: "hello-world",
+    date: "14. Oktober 2023",
+    tags: ["devlife", "linux", "git", "ssh"],
+  },
+];
+---
+
+<Layout
+  title="Digitaler Garten - Blog"
+  description="Hier findest du Beiträge über's coden und mehr. Der Content ergibt sich durch Projekte und Hobbies von mir."
+  slug="/blog"
+>
+  <Header title="Digitaler Garten" />
+
+  <ul class="divide-green divide-y">
+    {
+      dummyList.map((item, index) => (
+        <li
+          class={`relative ${
+            index > 0 ? "pt-8 md:pt-12" : ""
+          } pb-8 md:pb-12 group`}
+        >
+          <div class="space-x-2 mb-4">
+            {item.tags.map((tag) => (
+              <span
+                class={`tag bg-green inline-block text-green-900 text-xs px-2 py-1.5 rounded-md lowercase ${tag}`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <p class="text-gray-300 font-medium mb-1 text-lg md:text-2xl xl:text-3xl transition-colors duration-150 group-hover:text-green">
+            {item.title}
+          </p>
+          <p class="text-sm">{item.date}</p>
+          <a
+            href={`/blog/${item.slug}`}
+            class="absolute w-full h-full inset-0"
+          />
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  .tag {
+    &.javascript,
+    &.devlife {
+      background-color: #ecdb54;
+    }
+    &.css,
+    &.expressjs,
+    &.gitbash,
+    &.bash,
+    &.apache2,
+    &.scss &.git {
+      background-color: purple;
+      color: rgb(209, 213, 219);
+    }
+    &.vuejs,
+    &.nuxtjs &.ssh {
+      background-color: #00a591;
+      color: #fff;
+    }
+    &.html5 {
+      background-color: indianred;
+      color: rgb(209, 213, 219);
+    }
+    &.wordpress,
+    &.reactjs,
+    &.electron,
+    &.react-native,
+    &.typescript {
+      background-color: #007cba;
+      color: #fff;
+    }
+    &.nodejs,
+    &.stimulusjs,
+    &.spotify {
+      background-color: #026e00;
+      color: #fff;
+    }
+    &.mysql,
+    &.linux {
+      background-color: #f29221;
+    }
+  }
+</style>
