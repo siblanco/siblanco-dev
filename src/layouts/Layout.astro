@@ -1,5 +1,14 @@
 ---
 import "@fontsource/roboto";
+import { Image } from "astro:assets";
+import { ViewTransitions } from "astro:transitions";
+
+import Logo from "./../assets/images/logo_solo.svg";
+
+import GitlabIcon from "./../assets/images/footer/gitlab.png";
+import LinkedInIcon from "./../assets/images/footer/linkedin.png";
+import RssIcon from "./../assets/images/footer/rss.png";
+import Beam from "../components/Beam.astro";
 
 interface Props {
   title: string;
@@ -12,6 +21,7 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="de">
   <head>
+    <ViewTransitions />
     <meta charset="UTF-8" />
     <meta name="theme-color" content="#35b88f" />
     <meta name="author" content="Hassan El Siblani" />
@@ -20,7 +30,65 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body>
-    <slot />
+  <body class="bg-green-900 text-gray-300" transition:animate="none">
+    <header class="px-6 pt-8 pb-16">
+      <a href="/">
+        <Image src={Logo} alt="Logo" class="w-32" />
+      </a>
+    </header>
+
+    <Beam />
+
+    <main class="container mx-auto px-6" transition:animate="slide">
+      <slot />
+    </main>
+
+    <footer class="container mx-auto px-6 pt-16" transition:animate="none">
+      <ul class="flex justify-end space-x-3">
+        <li>
+          <a href="/feed.xml" target="_blank" title="RSS Feed">
+            <Image src={RssIcon} alt="Rss Icon" class="w-4" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/siblanco/"
+            title="LinkedIn Profil besuchen"
+            target="_blank"
+            rel="noopener"
+          >
+            <Image src={LinkedInIcon} alt="LinkedIn Icon" class="w-4" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.gitlab.com/siblanco"
+            title="Gitlab Profil besuchen"
+            target="_blank"
+            rel="noopener"
+          >
+            <Image src={GitlabIcon} alt="Gitlab Icon" class="w-4" />
+          </a>
+        </li>
+      </ul>
+      <hr class="w-12 bg-green h-0.5 border-none m-3 ml-auto mr-0" />
+      <ul class="flex space-x-4 justify-end uppercase text-sm">
+        <li>
+          <a href="/impressum/" title="Impressum lesen">
+            <small>Impressum</small>
+          </a>
+        </li>
+        <li>
+          <a href="/datenschutz/" title="Datenschutzerklärung lesen">
+            <small>Datenschutz</small>
+          </a>
+        </li>
+      </ul>
+      <p class="text-right">
+        <small
+          >© {new Date().getFullYear()} Siblanco - Alle Rechte vorbehalten.</small
+        >
+      </p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,38 @@
+---
+// interface Props {
+//   title: string;
+//   body: string;
+//   href: string;
+// }
+//
+// const { href, title, body } = Astro.props;
+---
+
+<div class="bg-green beam"></div>
+
+<style>
+  .beam {
+    position: fixed;
+    left: 50%;
+    top: 50px;
+
+    width: 300vh;
+    height: 200px;
+
+    z-index: -1;
+    opacity: 1;
+
+    transition:
+      transform 0.5s,
+      background-color 0.5s;
+
+    transform: translateX(-50%) scale(2) rotate(160deg);
+
+    @media screen and (min-width: 768px) {
+      height: 300px;
+    }
+    @media screen and (min-width: 1200px) {
+      height: 450px;
+    }
+  }
+</style>
