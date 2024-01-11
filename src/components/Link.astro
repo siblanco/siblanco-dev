@@ -1,0 +1,16 @@
+---
+interface Props {
+  label: string;
+  slug: string;
+  classes?: string;
+}
+
+const { slug, label, classes } = Astro.props;
+---
+
+<a
+  href={slug}
+  class={`inline-block text-green transition-colors duration-150 hover:text-green-200 font-medium sm:text-lg xl:text-xl ${classes}`}
+>
+  {label}
+</a>
