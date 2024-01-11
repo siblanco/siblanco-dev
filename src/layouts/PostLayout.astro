@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  slug?: string;
+}
+
+import Layout from "./Layout.astro";
+---
+
+<Layout {...Astro.props}><slot /></Layout>
+
+<style>
+  /* add typography styles */
+</style>
