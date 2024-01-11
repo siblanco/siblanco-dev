@@ -4,7 +4,20 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    container: {
+      center: true,
+      padding: "1.5rem",
+      screens: {
+        sm: "600px",
+        md: "728px",
+        lg: "984px",
+        xl: "1140px",
+      },
+    },
     extend: {
+      screens: {
+        xl: "1140px",
+      },
       colors: {
         green: {
           DEFAULT: "#35B88F",

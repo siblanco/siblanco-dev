@@ -1,8 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const dummyList = [
+  {
+    title: "enter the keyboard mounts",
+    date: "14. Oktober 2023",
+    slug: "enter-the-keyboard-mounts",
+  },
+  {
+    title: "xset r. ohne geht es nicht!",
+    date: "11. Mai 2023",
+    slug: "xset-r-ohne-geht-es-nicht",
+  },
+  {
+    title: "Einmal bitte 180 Grad",
+    date: "23. Dezember 2022",
+    slug: "einmal-bitte-180-grad",
+  },
+];
 ---
 
 <Layout title="Welcome my friend" description="test">
-  <h1 class="font-medium text-3xl mb-0.5">Hassan El Siblani</h1>
-  <h2 class="uppercase text-green">Software Developer</h2>
+  <section>
+    <h1
+      class="font-medium text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-0.5 sm:mb-1"
+    >
+      Hassan El Siblani
+    </h1>
+    <p class="uppercase text-green sm:text-lg lg:text-xl xl:text-2xl">
+      Software Developer
+    </p>
+  </section>
+
+  <section class="mt-20 sm:mt-32 xl:mt-48">
+    <div class="mb-10 flex justify-between items-end">
+      <h2 class="text-xl font-medium sm:text-2xl xl:text-3xl">
+        Digitaler Garten
+      </h2>
+      <a
+        href="/blog"
+        class="text-green transition-colors duration-150 hover:text-green-200 text-sm sm:text-base xl:text-lg"
+        >Alle Beiträge »</a
+      >
+    </div>
+
+    <ul class="space-y-8">
+      {
+        dummyList.map((item) => (
+          <li>
+            <a
+              href="/blog/{item.slug}"
+              class="inline-block mb-1 text-green transition-colors duration-150 hover:text-green-200 font-medium sm:text-lg xl:text-xl"
+            >
+              {item.title}
+            </a>
+            <span class="block text-sm xl:text-base">{item.date}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Layout>

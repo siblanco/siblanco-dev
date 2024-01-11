@@ -1,5 +1,8 @@
 ---
-import "@fontsource/roboto";
+import "@fontsource/roboto/100.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+
 import { Image } from "astro:assets";
 import { ViewTransitions } from "astro:transitions";
 
@@ -31,23 +34,26 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-green-900 text-gray-300">
-    <header class="container mx-auto px-6 pt-8 pb-16" transition:persist>
+    <header
+      class="container pt-12 sm:pt-16 lg:pt-24 xl:pt-32 pb-16 sm:pb-32 xl:pb-48"
+      transition:persist
+    >
       <a href="/">
-        <Image src={Logo} alt="Logo" class="w-32" />
+        <Image src={Logo} alt="Logo" class="w-32 sm:w-40 xl:w-48" />
       </a>
     </header>
 
     <Beam />
 
-    <main class="container mx-auto px-6" transition:animate="fade">
+    <main class="container" transition:animate="fade">
       <slot />
     </main>
 
-    <footer class="container mx-auto px-6 pt-16" transition:persist>
-      <ul class="flex justify-end space-x-3">
+    <footer class="container pt-16 pb-8" transition:persist>
+      <ul class="flex justify-end space-x-3 xl:space-x-4">
         <li>
           <a href="/feed.xml" target="_blank" title="RSS Feed">
-            <Image src={RssIcon} alt="Rss Icon" class="w-4" />
+            <Image src={RssIcon} alt="Rss Icon" class="w-4 xl:w-5" />
           </a>
         </li>
         <li>
@@ -57,7 +63,7 @@ const { title, description } = Astro.props;
             target="_blank"
             rel="noopener"
           >
-            <Image src={LinkedInIcon} alt="LinkedIn Icon" class="w-4" />
+            <Image src={LinkedInIcon} alt="LinkedIn Icon" class="w-4 xl:w-5" />
           </a>
         </li>
         <li>
@@ -67,25 +73,25 @@ const { title, description } = Astro.props;
             target="_blank"
             rel="noopener"
           >
-            <Image src={GitlabIcon} alt="Gitlab Icon" class="w-4" />
+            <Image src={GitlabIcon} alt="Gitlab Icon" class="w-4 xl:w-5" />
           </a>
         </li>
       </ul>
       <hr class="w-12 bg-green h-0.5 border-none m-3 ml-auto mr-0" />
-      <ul class="flex space-x-4 justify-end uppercase text-sm">
+      <ul class="flex space-x-4 justify-end uppercase text-sm xl:mb-1">
         <li>
           <a href="/impressum/" title="Impressum lesen">
-            <small>Impressum</small>
+            <small class="xl:text-sm">Impressum</small>
           </a>
         </li>
         <li>
           <a href="/datenschutz/" title="Datenschutzerklärung lesen">
-            <small>Datenschutz</small>
+            <small class="xl:text-sm">Datenschutz</small>
           </a>
         </li>
       </ul>
       <p class="text-right">
-        <small
+        <small class="xl:text-sm"
           >© {new Date().getFullYear()} Siblanco - Alle Rechte vorbehalten.</small
         >
       </p>
