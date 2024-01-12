@@ -2,14 +2,27 @@
 interface Props {
   title: string;
   description: string;
+  date: Date;
   slug?: string;
 }
 
+import "../assets/css/typography.css";
+import FormattedIsoDate from "../components/FormattedIsoDate.astro";
+import Header from "../components/Header.astro";
+import Link from "../components/Link.astro";
 import Layout from "./Layout.astro";
+
+const { title, description, date } = Astro.props;
 ---
 
-<Layout {...Astro.props}><slot /></Layout>
-
-<style>
-  /* add typography styles */
-</style>
+<Layout {...Astro.props}>
+  <Header title={title} description={description}>
+    <div class="mt-4">
+      <FormattedIsoDate date={date} />
+    </div>
+  </Header>
+  <div class="sib-typography">
+    <slot />
+  </div>
+  <Link slug="/blog" label="« Alle Beiträge" classes="mt-20 xl:mt-32" />
+</Layout>

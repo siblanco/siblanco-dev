@@ -1,10 +1,13 @@
 ---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
 interface Props {
   title: string;
-  subtitle?: string;
+  subtitle?: string | AstroComponentFactory;
+  description?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, description } = Astro.props;
 ---
 
 <section class="mb-20 sm:mb-32 xl:mb-48">
@@ -20,4 +23,12 @@ const { title, subtitle } = Astro.props;
       </p>
     )
   }
+  {
+    description && (
+      <p class="text-green text-lg sm:text-xl lg:text-2xl xl:text-3xl mt-4 sm:mt-6 xl:mt-8">
+        {description}
+      </p>
+    )
+  }
+  <slot />
 </section>

@@ -2,13 +2,16 @@
 import { getCollection } from "astro:content";
 import Header from "./../../components/Header.astro";
 import Layout from "./../../layouts/Layout.astro";
+import FormattedIsoDate from "../../components/FormattedIsoDate.astro";
 
-const allBlogPosts = await getCollection("blog");
+const allBlogPosts = (await getCollection("blog")).filter(
+  (post) => !post.data.isDraft,
+);
 ---
 
 <Layout
   title="Digitaler Garten - Blog"
-  description="Hier findest du Beiträge über's coden und mehr. Der Content ergibt sich durch Projekte und Hobbies von mir."
+  description="Beiträge über's coden und mehr. Der Content ergibt sich durch Projekte und Hobbies von mir."
   slug="/blog"
 >
   <Header title="Digitaler Garten" />
@@ -33,7 +36,9 @@ const allBlogPosts = await getCollection("blog");
           <p class="text-gray-300 font-medium mb-1 text-lg md:text-2xl xl:text-3xl transition-colors duration-150 group-hover:text-green">
             {data.title}
           </p>
-          <p class="text-sm">{data.date}</p>
+          <p class="text-sm">
+            <FormattedIsoDate date={data.date} />
+          </p>
           <a href={`/blog/${slug}`} class="absolute w-full h-full inset-0" />
         </li>
       ))
