@@ -53,7 +53,7 @@ const { title, description, slug } = Astro.props;
     <!-- social media -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={`https://siblanco.dev${slug}`} />
+    <meta property="og:url" content={`https://siblanco.dev${slug ?? ""}`} />
     <meta property="og:image" content="https://siblanco.dev/icon.png" />
 
     <title>{title}</title>
