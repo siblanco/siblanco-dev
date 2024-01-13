@@ -1,14 +1,14 @@
 ---
 isDraft: false
-title: "Mit Node.js und Express einen Webserver starten"
-description: "Wie starte ich mit Node.js und Express einen Server? Grober Einstieg in Express.js!"
-date: 2019-11-28
+title: Mit Node.js und Express einen Webserver starten
+description: Wie starte ich mit Node.js und Express einen Server? Grober Einstieg in Express.js!
+date: 2019-11-28T23:28:53
 tags: ["expressjs", "nodejs"]
 ---
 
 ## Express
 
-Express ist ein "Schnelles, offenes, unkompliziertes Web-Framework für Node.js". Mit Express können wir innerhalb weniger Minuten einen Server starten und verschiedene Routen abdecken. Ohne Framework ist es in Node.js wirklich mühselig. Meiner Meinung nach hat damals Express das Node.js Fieber entfacht. Ich zeige euch anhand eines Beispiels die Schönheit von Express im Gegensatz zu vanilla Node.js. Wir starten einen Server, welcher bei POSTs auf die Route `/save` Daten verarbeitet und an den User ein Hi <name>zurücksendet.</name>
+Express ist ein „Schnelles, offenes, unkompliziertes Web-Framework für Node.js“. Mit Express können wir innerhalb weniger Minuten einen Server starten und verschiedene Routen abdecken. Ohne Framework ist es in Node.js wirklich mühselig. Meiner Meinung nach hat damals Express das Node.js Fieber entfacht. Ich zeige euch anhand eines Beispiels die Schönheit von Express im Gegensatz zu vanilla Node.js. Wir starten einen Server, welcher bei POSTs auf die Route `/save` Daten verarbeitet und an den User ein Hi zurücksendet.
 
 ```javascript
 // index.js
@@ -24,7 +24,9 @@ app.post("/save", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server listening on port 3000!"));
+```
 
+```javascript
 // index.js
 const http = require("http");
 
@@ -52,7 +54,7 @@ server.listen(3000, () => console.log("Server listening on port 3000!"));
 
 ### Middleware
 
-Bei Express dreht sich im Grunde genommen alles um Middlewares. `app.use(express.json());` ist beispielsweise eine Middleware. Jede Middleware Funktion hat Zugriff auf unsere `request, response` Objekte sowie, mit `next()` auf die der Reihe nach folgende nächste Middleware Funktion. **Auf die der Reihe nach folgende nächste Middleware**...das ist wichtig. Bei Express spielt die Reihenfolge des Codes eine Rolle. Ein kleines Beipiel:
+Bei Express dreht sich im Grunde genommen alles um Middlewares. `app.use(express.json());` ist beispielsweise eine Middleware. Jede Middleware Funktion hat Zugriff auf unsere `request, response` Objekte sowie, mit `next()` auf die der Reihe nach folgende nächste Middleware Funktion. **Auf die der Reihe nach folgende nächste Middleware**…das ist wichtig. Bei Express spielt die Reihenfolge des Codes eine Rolle. Ein kleines Beipiel:
 
 ```javascript
 app.get("/", (req, res) => {
@@ -69,11 +71,11 @@ app.use((req, res, next) => {
 
 Sobald wir die Startseite unserer APP besuchen, kriegen wir zwar ein Hello World zu sehen, aber im Terminal bekommen wir ein `undefined`. Schreiben wir die Middleware über unseren GET handler, bekommen wir `Hallo von Middleware` im Terminal zu sehen!
 
-Nutze Middlewares um zB. User zu authentifizieren, bevor sie weitergeleteit werden oder um - wie wir es gemacht haben - das Request Objekt zu modifizieren, oder, oder.
+Nutze Middlewares um zB. User zu authentifizieren, bevor sie weitergeleteit werden oder um – wie wir es gemacht haben – das Request Objekt zu modifizieren, oder, oder.
 
 ### Express Router
 
-express.Router ist ein eigenständiges und modulares Middleware- und Routingsystem. Eine sog. "mini-app" in unserer eigentlichen APP. Der Router funktioniert aber - wie gesagt - komplett unabhängig, dh. wir könnten diesen beispielsweise auch in einem anderem Projekt wiederverwenden.
+express.Router ist ein eigenständiges und modulares Middleware- und Routingsystem. Eine sog. „mini-app“ in unserer eigentlichen APP. Der Router funktioniert aber – wie gesagt – komplett unabhängig, dh. wir könnten diesen beispielsweise auch in einem anderem Projekt wiederverwenden.
 
 Schreiben wir unsere `index.js` mal so um, dass Sie für alle Routen unter `/save` einen Router namens `saver` nutzt:
 
@@ -140,22 +142,22 @@ module.exports = router;
 
 Posten wir jetzt mit einem JSON Objekt auf die Route `/save/shoes`, erhalten wir:
 
-```json
+```javascript
 // JSON Objekt
 {
-  "product": {
-    "name": "Converse",
-    "price": "69.90"
-  }
+	"product": {
+		"name": "Converse",
+		"price": "69.90"
+	}
 }
 
 // Antwort
 {
-  "success": true,
-  "product": "Converse",
-  "price": "69.90",
-  "category": "shoes"
+    "success": true,
+    "product": "Converse",
+    "price": "69.90",
+    "category": "shoes"
 }
 ```
 
-Das war's erst mal mit einem groben Überblick zu Express.js.
+Das war’s erst mal mit einem groben Überblick über Express.js. Cooles Framework! Ich arbeite gerne damit 😛

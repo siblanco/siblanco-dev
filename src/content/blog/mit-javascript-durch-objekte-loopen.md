@@ -1,8 +1,8 @@
 ---
 isDraft: false
-title: "Mit JavaScript durch Objekte loopen"
-description: "Wie loope ich mit JavaScript am besten durch Objekte?"
-date: 2019-12-19
+title: Mit JavaScript durch Objekte loopen
+description: Wie loope ich mit JavaScript am besten durch Objekte?
+date: 2019-12-19T14:55:09
 tags: ["javascript"]
 ---
 
@@ -12,6 +12,7 @@ Um durch Arrays zu loopen gibt es zahlreiche Wege, hier mal 2 davon:
 
 ```javascript
 // index.js
+
 const arr = [1, 2, 3, 4, 5];
 
 // wenn wir keinen Index brauchen
@@ -59,7 +60,7 @@ for (const key in obj) {
 }
 ```
 
-Die Prototype Chain in JavaScript gehört zu den Basics, ich gehe da ein andermal in einem anderen Post drauf ein und gehe jetzt davon aus, dass du weißt was die Prototype Chain ist. Hier ist trotzdem ein kurzes Beispiel dafür, was genau ich mit "...properties, die das Objekt vom Constructor seines prototypes geerbt hat" meine:
+Die Prototype Chain in JavaScript gehört zu den Basics, ich gehe da ein andermal in einem anderen Post drauf ein und gehe jetzt davon aus, dass du weißt was die Prototype Chain ist. Hier ist trotzdem ein kurzes Beispiel dafür, was genau ich mit „…properties, die das Objekt vom Constructor seines prototypes geerbt hat“ meine:
 
 ```javascript
 const vaterObj = { position: "Vater", alter: 30 };
@@ -94,7 +95,7 @@ for (const key in obj2) {
 
 Der Constructor unseres prototypes vom neuen Objekt `obj2` ist hier unser `vaterObj`. Loggen wir alle Keys unseres Objektes, werden auch die aufzählbaren Eigenschaften geloggt, welche zwar nicht in unserem obj2 existieren, dafür aber in der prototype chain. Mehr dazu [hier](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/for...in).
 
-Ist es uns wichtig, dass wir nur die direkten Eigenschaften eines Objektes bearbeiten / sehen und nicht auch die der "Eltern", können wir die Methode `getOwnPropertyNames` nutzen:
+Ist es uns wichtig, dass wir nur die direkten Eigenschaften eines Objektes bearbeiten / sehen und nicht auch die der „Eltern“, können wir die Methode `getOwnPropertyNames` nutzen:
 
 ```javascript
 // Object.getOwnPropertyNames gibt uns ein Array mit allen

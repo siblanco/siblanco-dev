@@ -1,74 +1,51 @@
 ---
 isDraft: false
-title: "Prismjs in einem Nuxt Projekt"
-description: "Code syntax hightlightning mit PrismJS in Nuxt integrieren"
-date: 2019-12-15
-tags: ["nuxtjs"]
+title: Wie baue ich einen Parallax Effekt?
+description: Parallax Effekt mit vanilla JavaScript und CSS
+date: 2019-11-30T00:51:53
+tags: ["css", "javascript"]
 ---
 
-## Prismjs
+## Parallax?
 
-[prismjs.com](https://prismjs.com/)
+Bei einem Parallax Effekt lauschen wir auf das Scrolling des Users und passen die Position eines Bildes entsprechend an – entweder `translaten` wir es runter, oder eben hoch. Ein bisschen HTML:
 
-> "Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind. It’s used in thousands of websites, including some of those you visit daily."
+```html
+<div class="parallax">
+  <img src="./spacebg" alt="Bild eines Planeten" />
+</div>
+```
 
-Ich denke mehr brauche ich über Prism nicht zu sagen :-)
+Dazu das passende CSS:
 
-## Integration in Nuxtjs
-
-Zunächst installieren wir prismjs sowie das Paket "babel-plugin-prismjs" - `npm i --save prismjs babel-plugin-prismjs`. Mit babel-plugin-prismjs können wir prismjs - da wo es nötig ist - als Modul importieren und nutzen. Bevor wir dazu kommen, konfigurieren wir prism in unserer nuxt.config.js:
-
-```javascript
-// nuxt.config.js
-build: {
-  extend(config, ctx) {},
-  babel: {
-    plugins: [
-      [
-        "prismjs",
-          {
-            languages: ["javascript", "scss", "html", "json"],
-            plugins: ["line-numbers", "show-language"],
-            theme: "okaidia",
-            css: true
-          }
-      ]
-    ]
-  }
+```css
+.parallax {
+  /* damit man unser Bild nicht außerhalb dieses Containers sieht */
+  overflow: hidden;
+}
+.parallax img {
+  display: block;
+  max-width: 100%;
 }
 ```
 
-Das sind die Einstellungen, die ich zurzeit für meinen Blog nutze. Eine Übersicht über alle möglichen Einstellungen gibt's hier [https://github.com/mAAdhaTTah/babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs).
-
-Nun gilt es Primjs dort zu importieren, wo du es benötigst.
+Nichts besonderes, alles selbsterklärend. Kommen wir zum spaßigen Teil, dem JavaScript:
 
 ```javascript
-// _slug.vue
+// index.js
+document.addEventListener("scroll", () => {
+  const img = document.querySelector(".parallax img"),
+    imgPos = img.getBoundingClientRect().top + window.pageYOffset,
+    scrollHeight = window.pageYOffset;
 
-import Prism from "prismjs";
-
-export default {
-  mounted() {
-    document.body.classList.add("line-numbers"); // für das Plugin line-numbers - siehe prism docs
-    setTimeout(() => {
-      Prism.highlightAll();
-    }, 150);
-  },
-};
-```
-
-Warum `setTimeout`? Im mounted hook ist Vue soweit, dass das root Element zB. "#app" durch eine neue Vue Instanz ersetzt wurde. Damit ist aber nicht garantiert, dass auch schon alle Kinder im DOM zu finden sind. Damit würden wir highlightAll() evtl. aufrufen, obwohl unser Code noch nicht im DOM angekommen ist - Prism würde keinen Effekt haben. Ok, ok, warum nutzen wir dann nicht einfach `this.$nextTick` von Vuejs? Gute Frage! this.$nextTick läuft erst, sobald der komplette View gerendert wurde - das funktioniert auch wunderbar, wenn wir zu unserem Post navigieren. Jedoch nicht bei harten Seitenaufrufen. Falls du eine elegantere Lösung als setTimeout kennst, lass es mich wissen!
-
-Damit Code auch von Prism hervorgehoben wird, müsst ihr ihn wie folgt schreiben:
-
-```html
-<pre><code class="language-javascript">
-  function log(msg) {
-    console.log(msg);
+  if (scrollHeight <= imgPos) {
+    img.style.transform = "translateY(0)";
+    return;
   }
 
-  log('Danke prism!')
-</code></pre>
+  const newImgPos = (scrollHeight - imgPos) * 0.8;
+  img.style.transform = `translateY(${newImgPos}px)`;
+});
 ```
 
-Weiteres entnehmt ihr am besten den Docs auf prism.js!
+Die Methode `getBoundingClientRect()` gibt die Größe eines Elementes und dessen relative Position zum Viewport zurück. Beim Scrollen ändert sich dieser Wert also, wie gesagt, relativ zum Viewport. Wir hören auf das scroll Event und transformen die Position des Bildes, wenn der User weiter gescrollt hat, als `imgPos`. Sobald `getBoundingClientRect().top <= 0` ist, ist das Bild im Viewport ganz oben und die `scrollHeight`wird größer als `imgPos`. Wir verschieben das Bild parallel zum Scrollen, mit `* 0.8` stellen wir die Intensität ein.
