@@ -1,19 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import Header from "../components/Header.astro";
 import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
 import FormattedIsoDate from "../components/FormattedIsoDate.astro";
+import { getLastestPosts } from "../utils";
 
-const allBlogPosts = (await getCollection("blog"))
-  .filter((post) => !post.data.isDraft)
-  .sort(
-    (a, b) =>
-      Date.parse(b.data.date as unknown as string) -
-      Date.parse(a.data.date as unknown as string),
-  );
-
-const latestPosts = allBlogPosts.slice(0, 3);
+const latestPosts = await getLastestPosts(3);
 ---
 
 <Layout

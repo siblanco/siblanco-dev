@@ -1,16 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import Header from "./../../components/Header.astro";
 import Layout from "./../../layouts/Layout.astro";
 import FormattedIsoDate from "../../components/FormattedIsoDate.astro";
+import { getAllPublishedPosts } from "../../utils";
 
-const allBlogPosts = (await getCollection("blog"))
-  .filter((post) => !post.data.isDraft)
-  .sort(
-    (a, b) =>
-      Date.parse(b.data.date as unknown as string) -
-      Date.parse(a.data.date as unknown as string),
-  );
+const allBlogPosts = await getAllPublishedPosts();
 ---
 
 <Layout
