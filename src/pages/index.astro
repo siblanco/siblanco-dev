@@ -5,14 +5,13 @@ import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
 import FormattedIsoDate from "../components/FormattedIsoDate.astro";
 
-const allBlogPosts = await getCollection("blog");
-allBlogPosts
+const allBlogPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.isDraft)
   .sort(
     (a, b) =>
       Date.parse(b.data.date as unknown as string) -
       Date.parse(a.data.date as unknown as string),
-  )
-  .filter((post) => !post.data.isDraft);
+  );
 
 const latestPosts = allBlogPosts.slice(0, 3);
 ---
