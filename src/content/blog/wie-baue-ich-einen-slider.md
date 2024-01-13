@@ -13,7 +13,7 @@ Ich probiere jetzt auf jeden Fall mehr am Ball zu bleiben.
 
 ## HTML Markup
 
-Fangen wir mit dem HTML Markup an. Unser Slider wird nur aus Bildern und Indikatoren bestehen. Eine Demo findest du [hier](/blog-demos/slider).
+Fangen wir mit dem HTML Markup an. Unser Slider wird nur aus Bildern und Indikatoren bestehen.
 
 ```html
 <section class="slider">
@@ -222,6 +222,6 @@ const slideShow = {
 slideShow.init();
 ```
 
-Dafür erweitern wir unser Objekt mit den properties `activeImage und autoPlayer`. Die property autoPlayer wird unser Interval sein, damit wir dieses bei Klick auf einen Indikator auch wieder resetten können. [Hier](/blog-demos/slider) kannst du dir nochmal die Demo anschauen.
+Dafür erweitern wir unser Objekt mit den properties `activeImage und autoPlayer`. Die property autoPlayer wird unser Interval sein, damit wir dieses bei Klick auf einen Indikator auch wieder resetten können.
 
 Wir sehen uns beim nächsten Beitrag!

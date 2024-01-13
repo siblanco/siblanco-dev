@@ -8,9 +8,7 @@ tags: ["vuejs"]
 
 Klar, einen EventListener in VueJS binden ist ein Kinderspiel (in Vanilla JS übrigens auch 😬). Aber ich wollte letztens einen EventListener nur dann binden, wenn wir uns auf einem Gerät mit einer Maximalbreite von 768px befinden.
 
-Dazu habe ich dir mal eine Demo vorbereitet, welche du [hier](/blog-demos/conditional-event-listener-in-vuejs) findest. Nichts besonderes, kein CSS zum aufhübschen, es geht nur um das WIE :-P.
-
-Jetzt erkläre ich dir, wie es funktioniert! Kommen wir erst mal zum Markup:
+Kommen wir zum Wie:
 
 ```html
 <body>

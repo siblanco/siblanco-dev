@@ -88,6 +88,4 @@ self.addEventListener("activate", (event) => {
 
 Das Activate Event feuert sobald ein neuer ServiceWorker installiert wurde. Hier ist der ideale Zeitpunkt, den alten Cache zu löschen bzw. zu erweitern oder was auch immer :-). Dieses Beispiel ist ganz plump und auf keinen Fall prod ready: Es sucht nach dem Cache „offline-cache“ und löscht diesen.
 
-Ich habe natürlich wieder eine Demo vorbereitet: [Offline-Page](/blog-demos/offline-page). Teste die Seite. Gehe danach offline und schaue was passiert (Tipp: in Chrome die Developer Tools > Application > Service Workers > Offline anhaken)!
-
 Gefällt dir das ganze Konzept, lies dich schlau: [Fundamentals of Service Workers](https://developers.google.com/web/fundamentals/primers/service-workers). Schau dir auch die [WorkBox Library von Google](https://developers.google.com/web/tools/workbox) an. Bis dann!
