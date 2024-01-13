@@ -1,7 +1,7 @@
 ---
 isDraft: false
 title: Wie baue ich einen Slider?
-description: Kurz und knackig &#8211; Slider mit Überblenden
+description: Kurz und knackig - Slider mit Überblenden
 date: 2020-02-13T23:08:43
 tags: ["css", "javascript"]
 ---

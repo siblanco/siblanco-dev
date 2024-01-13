@@ -1,6 +1,6 @@
 ---
 isDraft: false
-title: Stimulus JS mit Typescript &#8211; Setup intro
+title: Stimulus JS mit Typescript - Setup intro
 description: Ohne Typescript geht nichts mehr, es ist einfach zu gut. Deswegen zeige ich dir heute, wie du Stimulus mit Typescript nutzen kannst.
 date: 2020-12-20T22:58:04
 tags: ["stimulusjs", "typescript"]

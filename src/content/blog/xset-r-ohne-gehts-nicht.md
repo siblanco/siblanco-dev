@@ -1,7 +1,7 @@
 ---
 isDraft: false
 title: xset r. ohne geht es nicht!
-description: xset r rate &#8211; du bist nicht du wenn du das nicht einstellst
+description: xset r rate - du bist nicht du wenn du das nicht einstellst
 date: 2023-05-11T23:40:50
 tags: ["devlife", "linux"]
 ---

@@ -1,6 +1,6 @@
 ---
 isDraft: false
-title: Code splitting mit Stimulus &#038; Webpack
+title: Code splitting mit Stimulus & Webpack
 description: Wie du dein Bundle ganz einfach aufteilen kannst und damit bessere Perfomance erreichst.
 date: 2021-04-16T09:25:45
 tags: ["javascript"]

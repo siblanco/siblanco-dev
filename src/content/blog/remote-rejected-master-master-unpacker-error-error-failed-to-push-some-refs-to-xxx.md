@@ -1,6 +1,6 @@
 ---
 isDraft: false
-title: "[remote rejected] master -> master (unpacker error) error: failed to push some refs to &#8218;xxx&#8216;"
+title: "[remote rejected] master -> master (unpacker error) error: failed to push some refs to 'xxx'"
 description: Ich zeige dir kurz wie du den o.g. Fehler umgehen kannst.
 date: 2022-06-20T13:59:06
 tags: ["git"]

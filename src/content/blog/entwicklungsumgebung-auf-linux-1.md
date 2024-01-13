@@ -1,7 +1,7 @@
 ---
 isDraft: false
 title: Entwicklungsumgebung auf Linux (1)
-description: Begleite mich beim Umstieg von Windows auf Linux (Ubuntu 20.04) &#8211; Part 1
+description: Begleite mich beim Umstieg von Windows auf Linux (Ubuntu 20.04) - Part 1
 date: 2020-06-20T15:09:30
 tags: ["apache2", "linux"]
 ---
