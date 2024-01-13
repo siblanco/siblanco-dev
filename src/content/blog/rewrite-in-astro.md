@@ -1,6 +1,6 @@
 ---
 isDraft: false
-title: siblanco.dev nuxt + wordpress to astro
+title: siblanco.dev rewrite in Astro
 description: Umstieg von Nuxt 2 auf Astro
 date: 2024-01-13
 tags: ["astro", "javascript", "html5"]
