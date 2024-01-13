@@ -11,6 +11,7 @@ const blogCollection = defineCollection({
     description: z.string(),
     tags: z.array(
       z.enum([
+        "astro",
         "apache2",
         "bash",
         "css",

@@ -12,13 +12,16 @@ export async function GET() {
     description:
       "Beiträge über's coden und mehr. Der Content ergibt sich durch Projekte und Hobbies von mir.",
     site: "https://siblanco.dev",
-    items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.description,
-      link: `/blog/${post.slug}/`,
-      content: sanitizeHtml(parser.render(post.body)),
-    })),
+    items: posts
+      .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+      .filter((post) => !post.data.isDraft)
+      .map((post) => ({
+        title: post.data.title,
+        pubDate: post.data.date,
+        description: post.data.description,
+        link: `/blog/${post.slug}/`,
+        content: sanitizeHtml(parser.render(post.body)),
+      })),
     customData: `<language>de-DE</language><copyright>© Siblanco - Alle Rechte vorbehalten.</copyright>`,
   });
 }
