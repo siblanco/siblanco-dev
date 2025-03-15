@@ -36,6 +36,7 @@ const blogCollection = defineCollection({
         "typescript",
         "vuejs",
         "wordpress",
+        "ai",
       ]),
     ),
   }),
