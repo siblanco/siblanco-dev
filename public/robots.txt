@@ -1,3 +1,4 @@
-Sitemap: https://siblanco.dev/sitemap.xml
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://siblanco.dev/sitemap-index.xml
