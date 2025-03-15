@@ -7,6 +7,7 @@ interface Props {
 }
 
 import "../assets/css/typography.css";
+import Comments from "../components/Comments.astro";
 import FormattedIsoDate from "../components/FormattedIsoDate.astro";
 import Header from "../components/Header.astro";
 import Link from "../components/Link.astro";
@@ -24,5 +25,6 @@ const { title, description, date } = Astro.props;
   <div class="sib-typography">
     <slot />
   </div>
+  <Comments />
   <Link slug="/blog" label="« Alle Beiträge" classes="mt-20 xl:mt-32" />
 </Layout>
