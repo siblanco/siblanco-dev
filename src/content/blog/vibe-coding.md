@@ -2,7 +2,7 @@
 isDraft: false
 title: "Vibe Coding: Wenn KI-Agenten Code für dich schreiben"
 description: "Eine Einführung ins Vibe Coding - wie du mit natürlicher Sprache und KI-Agenten deinen Entwicklungsworkflow revolutionieren kannst."
-date: 2024-03-15
+date: 2025-03-15
 tags: ["devlife", "ai"]
 ---
 

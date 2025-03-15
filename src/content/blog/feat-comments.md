@@ -2,7 +2,7 @@
 isDraft: false
 title: "Vibe Coding in Action: Integration von Giscus in meinen Blog"
 description: "Ein praktisches Beispiel, wie ich mit KI-Agenten eine Kommentarfunktion für meinen Blog implementiert habe - ohne eine Zeile Code selbst zu schreiben."
-date: 2024-03-15
+date: 2025-03-15
 tags: ["devlife", "ai", "astro"]
 ---
 
