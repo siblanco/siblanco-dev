@@ -28,45 +28,30 @@ interface Props {
   theme?: "dark" | "light" | "dark_dimmed" | "transparent_dark";
 }
 
-const { theme = "dark" } = Astro.props;
+const { theme = "dark_dimmed" } = Astro.props;
 ---
 
 <section class="comments my-8 md:my-12">
   <h2 class="text-xl sm:text-2xl lg:text-3xl mb-4 font-medium">Kommentare</h2>
-  <div class="giscus"></div>
+  <div class="giscus">
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo="siblanco/siblanco-dev"
+      data-repo-id="R_kgDOLDp6tA"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOLDp6tM4CoFFk"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme={theme}
+      data-lang="de"
+      crossorigin="anonymous"
+      async></script>
+  </div>
 </section>
-
-<script is:inline>
-  function loadGiscus() {
-    const script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
-    script.dataset.repo = "siblanco/siblanco-dev";
-    script.dataset.repoId = "R_kgDOLDp6tA";
-    script.dataset.category = "Announcements";
-    script.dataset.categoryId = "DIC_kwDOLDp6tM4CoFFk";
-    script.dataset.mapping = "pathname";
-    script.dataset.strict = "0";
-    script.dataset.reactionsEnabled = "1";
-    script.dataset.emitMetadata = "0";
-    script.dataset.inputPosition = "bottom";
-    script.dataset.theme = "dark";
-    script.dataset.lang = "de";
-    script.crossOrigin = "anonymous";
-    script.async = true;
-
-    const container = document.querySelector(".giscus");
-    if (container) {
-      container.innerHTML = "";
-      container.appendChild(script);
-    }
-  }
-
-  // Load Giscus after the page has fully loaded
-  window.addEventListener("load", loadGiscus);
-
-  // Handle theme changes if your site has theme switching functionality
-  document.addEventListener("astro:after-swap", loadGiscus);
-</script>
 
 <style>
   .comments {
@@ -85,9 +70,7 @@ Die Komponente enthält alles, was ich brauchte:
 
 1. Eine saubere Interface-Definition mit optionalem Theme-Parameter
 2. Ein Abschnitt für die Kommentare mit ansprechendem Styling
-3. Ein inline-Script, das Giscus dynamisch lädt und korrekt initialisiert
-4. Event-Listener für die Seiten-Navigation und Theme-Wechsel
-5. CSS für ein konsistentes Layout
+3. CSS für ein konsistentes Layout
 
 ## Integration in mein Blog-Layout
 
@@ -105,7 +88,6 @@ Und dann einfach vor meinem Link "« Alle Beiträge" einfügen:
 
 Das Erstaunliche dabei: Der KI-Agent hat nicht nur funktionierenden Code generiert, sondern auch alle wichtigen Edge Cases berücksichtigt:
 
-- Das Neuladen der Kommentare nach Navigation mit Astro
 - Konsistentes Styling, das zu meinem bestehenden Design passt
 - Eine saubere, wartbare Komponenten-Struktur
 
