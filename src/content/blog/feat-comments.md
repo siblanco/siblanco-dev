@@ -6,8 +6,6 @@ date: 2024-03-15
 tags: ["devlife", "ai", "astro"]
 ---
 
-# Vibe Coding in Action: Integration von Giscus in meinen Blog
-
 ## Moin!
 
 In meinem letzten Beitrag habe ich euch von [Vibe Coding und KI-Agenten](https://siblanco.dev/blog/vibe-coding) erzählt. Heute zeige ich euch, wie ich diese Techniken konkret genutzt habe, um meinen Blog mit einer Kommentarfunktion zu erweitern.
