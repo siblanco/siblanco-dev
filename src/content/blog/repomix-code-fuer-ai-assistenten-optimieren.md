@@ -1,10 +1,10 @@
 ---
 title: "Repomix: Code für AI-Assistenten optimal aufbereiten"
-pubDate: 2025-03-16
+date: 2025-03-16
 description: "Mit Repomix kannst du dein gesamtes Repository in ein einziges, AI-freundliches Format umwandeln - perfekt für die Zusammenarbeit mit KI-Tools wie ChatGPT, Claude oder Gemini."
+tags: ["ai"]
+isDraft: false
 ---
-
-# Repomix: Code für AI-Assistenten optimal aufbereiten
 
 Du kennst das sicher: Du möchtest von einem AI-Assistenten wie ChatGPT, Claude oder Gemini Hilfe bei einem Coding-Problem bekommen. Doch dein Projekt besteht aus Dutzenden oder sogar Hunderten von Dateien. Einzeln hochladen? Viel zu aufwendig. Hier kommt Repomix ins Spiel - ein Tool, das ich kürzlich entdeckt habe und das mir die Arbeit mit KI-Assistenten erheblich erleichtert hat.
 
@@ -86,3 +86,7 @@ Besonders gefällt mir, dass das Tool Open Source ist und aktiv weiterentwickelt
 Für alle, die regelmäßig mit KI-Assistenten an Codeprojekten arbeiten, ist Repomix definitiv einen Blick wert. Du findest es auf GitHub unter [yamadashy/repomix](https://github.com/yamadashy/repomix) oder kannst die Online-Version auf [repomix.com](https://repomix.com) ausprobieren.
 
 Hast du bereits Erfahrungen mit Repomix oder ähnlichen Tools gesammelt? Ich bin gespannt auf deine Meinung in den Kommentaren!
+
+---
+
+_Hinweis: Auch dieser Beitrag wurde mithilfe von KI-Technologien erstellt._
