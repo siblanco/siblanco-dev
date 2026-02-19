@@ -49,7 +49,7 @@ Und genau das ist das Problem. Wie baust du Erfahrung auf, wenn die KI die Arbei
 
 ## Fazit
 
-Die Zukunft ist spannend und ein beängstigend gleichzeitig. Für mich persönlich hat sich der Wechsel zu Claude Code gelohnt, keine Frage. Aber die Frage, was das für die nächste Generation von Entwicklern bedeutet, die treibt mich um.
+Die Zukunft ist spannend und beängstigend gleichzeitig. Für mich persönlich hat sich der Wechsel zu Claude Code gelohnt, keine Frage. Aber die Frage, was das für die nächste Generation von Entwicklern bedeutet, die treibt mich um.
 
 Wie sieht es bei euch aus? Meld dich gerne!
 
